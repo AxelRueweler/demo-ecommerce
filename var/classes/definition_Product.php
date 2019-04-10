@@ -1,16 +1,17 @@
 <?php 
 
 /** 
-* Generated at: 2018-10-12T14:02:48+02:00
+* Generated at: 2019-04-10T13:36:24+02:00
 * Inheritance: yes
 * Variants: yes
 * Changed by: admin (19)
-* IP: 192.168.9.95
+* IP: 172.20.0.1
 
 
 Fields Summary: 
 - localizedfields [localizedfields]
 -- name [input]
+-- name_enhanced [input]
 -- seoname [input]
 -- colorName [input]
 -- price [numeric]
@@ -18,28 +19,28 @@ Fields Summary:
 -- fromPrice [checkbox]
 -- description [wysiwyg]
 -- material [wysiwyg]
--- downloads [multihref]
--- videos [multihref]
--- rotation [href]
+-- downloads [manyToManyRelation]
+-- videos [manyToManyRelation]
+-- rotation [manyToOneRelation]
 -- youtubeVideo [input]
 -- textsAvailable [calculatedValue]
 - artno [input]
 - ean [input]
 - size [input]
-- brand [href]
+- brand [manyToOneRelation]
 - gender [multiselect]
-- categories [objects]
-- features [objects]
-- technologies [objects]
-- attributes [objects]
-- collection [objects]
+- categories [manyToManyObjectRelation]
+- features [manyToManyObjectRelation]
+- technologies [manyToManyObjectRelation]
+- attributes [manyToManyObjectRelation]
+- collection [manyToManyObjectRelation]
 - color [multiselect]
-- materialComposition [objectsMetadata]
-- secondaryMaterialComposition [objectsMetadata]
+- materialComposition [advancedManyToManyObjectRelation]
+- secondaryMaterialComposition [advancedManyToManyObjectRelation]
 - imagesInheritance [select]
 - images [fieldcollections]
 - specificAttributes [objectbricks]
-- relatedProducts [objects]
+- relatedProducts [manyToManyObjectRelation]
 - attributesAvailable [calculatedValue]
 - variantsAvailable [calculatedValue]
 - wfstate [multiselect]
@@ -51,13 +52,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Product',
    'description' => '',
    'creationDate' => 1366282442,
-   'modificationDate' => 1539345768,
+   'modificationDate' => 1554896184,
    'userOwner' => 1,
    'userModification' => 19,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractProduct',
    'listingParentClass' => '',
    'useTraits' => '',
    'listingUseTraits' => '',
+   'encryption' => false,
+   'encryptedTables' => 
+  array (
+  ),
    'allowInherit' => true,
    'allowVariants' => true,
    'showVariants' => false,
@@ -145,7 +150,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'columnLength' => 255,
                          'phpdocType' => 'string',
                          'regex' => '',
-                         'unique' => NULL,
+                         'unique' => false,
+                         'showCharCount' => false,
                          'name' => 'name',
                          'title' => 'Name',
                          'tooltip' => '',
@@ -170,16 +176,17 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'columnLength' => 255,
                          'phpdocType' => 'string',
                          'regex' => '',
-                         'unique' => NULL,
-                         'name' => 'seoname',
-                         'title' => 'SEO Name',
+                         'unique' => false,
+                         'showCharCount' => true,
+                         'name' => 'name_enhanced',
+                         'title' => 'Name Enhanced',
                          'tooltip' => '',
-                         'mandatory' => false,
+                         'mandatory' => true,
                          'noteditable' => false,
-                         'index' => false,
-                         'locked' => false,
-                         'style' => 'float:left;',
-                         'permissions' => '',
+                         'index' => true,
+                         'locked' => NULL,
+                         'style' => 'float:left; margin-right:20px;',
+                         'permissions' => NULL,
                          'datatype' => 'data',
                          'relationType' => false,
                          'invisible' => false,
@@ -196,6 +203,33 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'phpdocType' => 'string',
                          'regex' => '',
                          'unique' => NULL,
+                         'showCharCount' => NULL,
+                         'name' => 'seoname',
+                         'title' => 'SEO Name',
+                         'tooltip' => '',
+                         'mandatory' => false,
+                         'noteditable' => false,
+                         'index' => false,
+                         'locked' => false,
+                         'style' => 'float:left;',
+                         'permissions' => '',
+                         'datatype' => 'data',
+                         'relationType' => false,
+                         'invisible' => false,
+                         'visibleGridView' => true,
+                         'visibleSearch' => true,
+                      )),
+                      3 => 
+                      Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                         'fieldtype' => 'input',
+                         'width' => 300,
+                         'queryColumnType' => 'varchar',
+                         'columnType' => 'varchar',
+                         'columnLength' => 255,
+                         'phpdocType' => 'string',
+                         'regex' => '',
+                         'unique' => NULL,
+                         'showCharCount' => NULL,
                          'name' => 'colorName',
                          'title' => 'Color Name',
                          'tooltip' => '',
@@ -342,6 +376,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'columnType' => 'longtext',
                          'phpdocType' => 'string',
                          'toolbarConfig' => '',
+                         'excludeFromSearchIndex' => false,
                          'name' => 'description',
                          'title' => 'Description',
                          'tooltip' => '',
@@ -366,6 +401,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'columnType' => 'longtext',
                          'phpdocType' => 'string',
                          'toolbarConfig' => '',
+                         'excludeFromSearchIndex' => false,
                          'name' => 'material',
                          'title' => 'Material',
                          'tooltip' => '',
@@ -402,8 +438,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'childs' => 
                     array (
                       0 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\Multihref::__set_state(array(
-                         'fieldtype' => 'multihref',
+                      Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyRelation::__set_state(array(
+                         'fieldtype' => 'manyToManyRelation',
                          'width' => 500,
                          'height' => '',
                          'maxItems' => '',
@@ -435,14 +471,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'style' => '',
                          'permissions' => '',
                          'datatype' => 'data',
-                         'columnType' => '',
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
                       )),
                       1 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\Multihref::__set_state(array(
-                         'fieldtype' => 'multihref',
+                      Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyRelation::__set_state(array(
+                         'fieldtype' => 'manyToManyRelation',
                          'width' => 500,
                          'height' => '',
                          'maxItems' => '',
@@ -478,14 +513,13 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'style' => '',
                          'permissions' => '',
                          'datatype' => 'data',
-                         'columnType' => '',
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
                       )),
                       2 => 
-                      Pimcore\Model\DataObject\ClassDefinition\Data\Href::__set_state(array(
-                         'fieldtype' => 'href',
+                      Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                         'fieldtype' => 'manyToOneRelation',
                          'width' => 300,
                          'assetUploadPath' => NULL,
                          'relationType' => true,
@@ -523,7 +557,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'style' => '',
                          'permissions' => '',
                          'datatype' => 'data',
-                         'columnType' => '',
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
@@ -538,6 +571,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                          'phpdocType' => 'string',
                          'regex' => '',
                          'unique' => NULL,
+                         'showCharCount' => NULL,
                          'name' => 'youtubeVideo',
                          'title' => 'YouTube Video',
                          'tooltip' => '',
@@ -595,7 +629,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
-                     'columnType' => NULL,
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -623,8 +656,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
-                 'queryColumnType' => NULL,
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => true,
@@ -639,8 +670,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'style' => '',
              'permissions' => '',
              'datatype' => 'data',
-             'columnType' => '',
-             'queryColumnType' => '',
              'relationType' => false,
              'invisible' => false,
              'visibleGridView' => true,
@@ -674,6 +703,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
+                 'showCharCount' => NULL,
                  'name' => 'artno',
                  'title' => 'Article Number',
                  'tooltip' => '',
@@ -699,6 +729,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
+                 'showCharCount' => NULL,
                  'name' => 'ean',
                  'title' => 'EAN-Code',
                  'tooltip' => '',
@@ -724,6 +755,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'phpdocType' => 'string',
                  'regex' => '',
                  'unique' => NULL,
+                 'showCharCount' => NULL,
                  'name' => 'size',
                  'title' => 'Size',
                  'tooltip' => '',
@@ -740,8 +772,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => true,
               )),
               3 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Href::__set_state(array(
-                 'fieldtype' => 'href',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                 'fieldtype' => 'manyToOneRelation',
                  'width' => '',
                  'assetUploadPath' => '',
                  'relationType' => true,
@@ -779,7 +811,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => '',
                  'datatype' => 'data',
-                 'columnType' => '',
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
@@ -835,14 +866,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'visibleSearch' => false,
               )),
               5 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => false,
                  'classes' => 
                 array (
@@ -862,20 +894,20 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => '',
                  'datatype' => 'data',
-                 'columnType' => '',
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
               6 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -899,20 +931,20 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
               7 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -936,20 +968,20 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
               8 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -965,20 +997,20 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => '',
                  'datatype' => 'data',
-                 'columnType' => '',
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
               )),
               9 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => '',
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -994,7 +1026,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
@@ -1157,7 +1188,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'visibleSearch' => true,
                   )),
                   1 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ObjectsMetadata::__set_state(array(
+                  Pimcore\Model\DataObject\ClassDefinition\Data\AdvancedManyToManyObjectRelation::__set_state(array(
                      'allowedClassId' => 'ProductTechnology',
                      'visibleFields' => '',
                      'columns' => 
@@ -1173,8 +1204,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                         'id' => 'extModel8439-1',
                       ),
                     ),
-                     'fieldtype' => 'objectsMetadata',
+                     'fieldtype' => 'advancedManyToManyObjectRelation',
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ObjectMetadata[]',
+                     'enableBatchEdit' => NULL,
                      'width' => '',
                      'height' => '',
                      'maxItems' => '',
@@ -1195,7 +1227,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
-                     'columnType' => NULL,
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
@@ -1205,7 +1236,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     ),
                   )),
                   2 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\ObjectsMetadata::__set_state(array(
+                  Pimcore\Model\DataObject\ClassDefinition\Data\AdvancedManyToManyObjectRelation::__set_state(array(
                      'allowedClassId' => 'ProductTechnology',
                      'visibleFields' => '',
                      'columns' => 
@@ -1221,8 +1252,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                         'id' => 'extModel8523-1',
                       ),
                     ),
-                     'fieldtype' => 'objectsMetadata',
+                     'fieldtype' => 'advancedManyToManyObjectRelation',
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ObjectMetadata[]',
+                     'enableBatchEdit' => NULL,
                      'width' => '',
                      'height' => '',
                      'maxItems' => '',
@@ -1243,7 +1275,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
-                     'columnType' => NULL,
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
@@ -1336,8 +1367,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => '',
                      'datatype' => 'data',
-                     'columnType' => '',
-                     'queryColumnType' => '',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -1403,8 +1432,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => '',
                  'datatype' => 'data',
-                 'columnType' => '',
-                 'queryColumnType' => '',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -1432,14 +1459,15 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'childs' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objects::__set_state(array(
-                 'fieldtype' => 'objects',
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
+                 'fieldtype' => 'manyToManyObjectRelation',
                  'width' => '',
                  'height' => '',
                  'maxItems' => 2,
                  'queryColumnType' => 'text',
                  'phpdocType' => 'array',
                  'relationType' => true,
+                 'visibleFields' => NULL,
                  'lazyLoading' => true,
                  'classes' => 
                 array (
@@ -1459,7 +1487,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => '',
                  'datatype' => 'data',
-                 'columnType' => '',
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
@@ -1531,7 +1558,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
-                     'columnType' => NULL,
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -1559,8 +1585,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
-                 'queryColumnType' => NULL,
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => true,
@@ -1584,7 +1608,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -1608,7 +1631,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'columnType' => NULL,
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,

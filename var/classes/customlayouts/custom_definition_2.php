@@ -1,8 +1,9 @@
 <?php 
 
 /** 
-* Generated at: 2018-12-19T20:56:58+01:00
+* Generated at: 2019-04-10T13:34:16+02:00
 * Changed by: system (0)
+* IP: 172.20.0.1
 */ 
 
 
@@ -11,7 +12,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
    'name' => 'Readonly',
    'description' => NULL,
    'creationDate' => 1513842173,
-   'modificationDate' => 1543248090,
+   'modificationDate' => 1554896056,
    'userOwner' => 13,
    'userModification' => 0,
    'classId' => '12',
@@ -26,8 +27,8 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
      'title' => NULL,
      'width' => NULL,
      'height' => NULL,
-     'collapsible' => NULL,
-     'collapsed' => NULL,
+     'collapsible' => false,
+     'collapsed' => false,
      'bodyStyle' => NULL,
      'datatype' => 'layout',
      'permissions' => NULL,
@@ -117,7 +118,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
-                     'columnType' => NULL,
                   )),
                 ),
                  'name' => 'localizedfields',
@@ -145,8 +145,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => true,
                  'visibleSearch' => true,
-                 'columnType' => NULL,
-                 'queryColumnType' => NULL,
               )),
               2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
@@ -170,7 +168,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => NULL,
               )),
               3 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\CalculatedValue::__set_state(array(
@@ -194,7 +191,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => NULL,
               )),
             ),
              'locked' => false,
@@ -217,7 +213,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'width' => NULL,
                  'height' => NULL,
                  'collapsible' => false,
-                 'collapsed' => NULL,
+                 'collapsed' => false,
                  'bodyStyle' => NULL,
                  'datatype' => 'layout',
                  'permissions' => NULL,
@@ -449,6 +445,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                          'columnType' => 'longtext',
                          'phpdocType' => 'string',
                          'toolbarConfig' => '',
+                         'excludeFromSearchIndex' => false,
                          'name' => 'description',
                          'title' => 'Description',
                          'tooltip' => '',
@@ -473,6 +470,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                          'columnType' => 'longtext',
                          'phpdocType' => 'string',
                          'toolbarConfig' => '',
+                         'excludeFromSearchIndex' => false,
                          'name' => 'material',
                          'title' => 'Material',
                          'tooltip' => '',
@@ -545,7 +543,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
-                         'columnType' => '',
                       )),
                       1 => 
                       Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyRelation::__set_state(array(
@@ -588,7 +585,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
-                         'columnType' => '',
                       )),
                       2 => 
                       Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
@@ -633,7 +629,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                          'invisible' => false,
                          'visibleGridView' => false,
                          'visibleSearch' => false,
-                         'columnType' => '',
                       )),
                       3 => 
                       Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
@@ -693,8 +688,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
              'invisible' => false,
              'visibleGridView' => true,
              'visibleSearch' => true,
-             'columnType' => '',
-             'queryColumnType' => '',
           )),
           2 => 
           Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
@@ -835,7 +828,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => '',
               )),
               4 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
@@ -919,7 +911,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => '',
               )),
               6 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -957,7 +948,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => NULL,
               )),
               7 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -995,7 +985,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => NULL,
               )),
               8 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -1025,7 +1014,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => true,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => '',
               )),
               9 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\ManyToManyObjectRelation::__set_state(array(
@@ -1055,7 +1043,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => NULL,
               )),
             ),
              'locked' => false,
@@ -1233,6 +1220,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                     ),
                      'fieldtype' => 'advancedManyToManyObjectRelation',
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ObjectMetadata[]',
+                     'enableBatchEdit' => NULL,
                      'width' => '',
                      'height' => '',
                      'maxItems' => '',
@@ -1256,7 +1244,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
-                     'columnType' => NULL,
                      'columnKeys' => 
                     array (
                       0 => 'percent',
@@ -1281,6 +1268,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                     ),
                      'fieldtype' => 'advancedManyToManyObjectRelation',
                      'phpdocType' => '\\Pimcore\\Model\\DataObject\\Data\\ObjectMetadata[]',
+                     'enableBatchEdit' => NULL,
                      'width' => '',
                      'height' => '',
                      'maxItems' => '',
@@ -1304,7 +1292,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
-                     'columnType' => NULL,
                      'columnKeys' => 
                     array (
                       0 => 'percent',
@@ -1398,8 +1385,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                      'invisible' => false,
                      'visibleGridView' => false,
                      'visibleSearch' => false,
-                     'columnType' => '',
-                     'queryColumnType' => '',
                   )),
                 ),
                  'locked' => false,
@@ -1465,8 +1450,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => '',
-                 'queryColumnType' => '',
               )),
             ),
              'locked' => false,
@@ -1521,7 +1504,6 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
                  'invisible' => false,
                  'visibleGridView' => false,
                  'visibleSearch' => false,
-                 'columnType' => '',
               )),
             ),
              'locked' => false,
@@ -1530,7 +1512,7 @@ return Pimcore\Model\DataObject\ClassDefinition\CustomLayout::__set_state(array(
          'locked' => false,
       )),
     ),
-     'locked' => NULL,
+     'locked' => false,
   )),
    'default' => 0,
    'dao' => NULL,
