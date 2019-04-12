@@ -20,6 +20,7 @@ return [
         "CustomerManagementFrameworkBundle\\PimcoreCustomerManagementFrameworkBundle" => TRUE,
         "Pimcore\\Bundle\\ObjectMergerBundle\\ObjectMergerBundle" => TRUE,
         "WorkflowGuiBundle\\WorkflowGuiBundle" => TRUE,
-        "Pimcore\\Bundle\\ServerSideMatomoTrackingBundle\\ServerSideMatomoTrackingBundle" => TRUE
+        "Pimcore\\Bundle\\ServerSideMatomoTrackingBundle\\ServerSideMatomoTrackingBundle" => TRUE,
+        "Elements\\Bundle\\ProcessManagerBundle\\ElementsProcessManagerBundle" => TRUE
     ]
 ];

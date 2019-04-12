@@ -2,13 +2,14 @@
 
 return [
     1 => [
+        "id" => 1,
         "name" => "fallbackImage",
+        "language" => "",
         "type" => "asset",
-        "data" => "4486",
-        "siteId" => "0",
-        "creationDate" => "1426104702",
-        "modificationDate" => "1426104702",
-        "id" => 1
+        "data" => 4486,
+        "siteId" => 0,
+        "creationDate" => 1426104702,
+        "modificationDate" => 1555058774
     ],
     2 => [
         "name" => "fallbackFilterdefinition",
