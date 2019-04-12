@@ -9,6 +9,7 @@
   },
   "require": {
     "php": ">=7.1",
+    "elements/export-toolkit-bundle": "dev-master",
     "elements/process-manager-bundle": "^2.3",
     "pimcore/customer-management-framework-bundle": "^1.9",
     "pimcore/pimcore": "~5.7.0",
