@@ -17,7 +17,7 @@ CREATE TABLE `application_logs_archive_01_2018` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -35,7 +35,7 @@ CREATE TABLE `application_logs_archive_04_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -53,7 +53,7 @@ CREATE TABLE `application_logs_archive_05_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -71,7 +71,7 @@ CREATE TABLE `application_logs_archive_06_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -89,7 +89,7 @@ CREATE TABLE `application_logs_archive_06_2017` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -107,7 +107,7 @@ CREATE TABLE `application_logs_archive_06_2018` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -125,7 +125,7 @@ CREATE TABLE `application_logs_archive_07_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -143,7 +143,7 @@ CREATE TABLE `application_logs_archive_07_2018` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -161,7 +161,7 @@ CREATE TABLE `application_logs_archive_08_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -179,7 +179,7 @@ CREATE TABLE `application_logs_archive_08_2017` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -197,7 +197,7 @@ CREATE TABLE `application_logs_archive_09_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -215,7 +215,7 @@ CREATE TABLE `application_logs_archive_10_2016` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -233,7 +233,7 @@ CREATE TABLE `application_logs_archive_10_2017` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -251,7 +251,7 @@ CREATE TABLE `application_logs_archive_11_2017` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -269,7 +269,7 @@ CREATE TABLE `application_logs_archive_12_2017` (
   `relatedobject` bigint(20) DEFAULT NULL,
   `relatedobjecttype` enum('object','document','asset') DEFAULT NULL,
   `maintenanceChecked` tinyint(4) DEFAULT NULL
-) ENGINE=ARCHIVE DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 
@@ -1598,6 +1598,11 @@ CREATE TABLE `object_collection_PaymentInfo_9` (
   `provider_paypal_PaymentType` varchar(255) DEFAULT NULL,
   `provider_paypal_amount` varchar(255) DEFAULT NULL,
   `providerData` longtext,
+  `provider_payu_amount` varchar(255) DEFAULT NULL,
+  `provider_payu_PaymentType` varchar(255) DEFAULT NULL,
+  `provider_ogone_amount` varchar(255) DEFAULT NULL,
+  `provider_ogone_PaymentId` varchar(255) DEFAULT NULL,
+  `provider_ogone_PaymentType` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`o_id`,`index`,`fieldname`),
   KEY `o_id` (`o_id`),
   KEY `index` (`index`),
@@ -1730,10 +1735,12 @@ CREATE TABLE `object_localized_data_12` (
   `description` longtext,
   `material` longtext,
   `youtubeVideo` varchar(255) DEFAULT NULL,
+  `name_enhanced` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
   KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`),
-  KEY `p_index_colorName` (`colorName`)
+  KEY `p_index_colorName` (`colorName`),
+  KEY `p_index_name_enhanced` (`name_enhanced`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1832,10 +1839,12 @@ CREATE TABLE `object_localized_query_12_de_AT` (
   `rotation__type` enum('document','asset','object') DEFAULT NULL,
   `youtubeVideo` varchar(255) DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
+  `name_enhanced` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
   KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`),
-  KEY `p_index_colorName` (`colorName`)
+  KEY `p_index_colorName` (`colorName`),
+  KEY `p_index_name_enhanced` (`name_enhanced`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1858,10 +1867,12 @@ CREATE TABLE `object_localized_query_12_en_GB` (
   `rotation__type` enum('document','asset','object') DEFAULT NULL,
   `youtubeVideo` varchar(255) DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
+  `name_enhanced` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
   KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`),
-  KEY `p_index_colorName` (`colorName`)
+  KEY `p_index_colorName` (`colorName`),
+  KEY `p_index_name_enhanced` (`name_enhanced`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1884,10 +1895,12 @@ CREATE TABLE `object_localized_query_12_fr_FR` (
   `rotation__type` enum('document','asset','object') DEFAULT NULL,
   `youtubeVideo` varchar(255) DEFAULT NULL,
   `textsAvailable` varchar(190) DEFAULT NULL,
+  `name_enhanced` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ooo_id`,`language`),
   KEY `ooo_id` (`ooo_id`),
   KEY `language` (`language`),
-  KEY `p_index_colorName` (`colorName`)
+  KEY `p_index_colorName` (`colorName`),
+  KEY `p_index_name_enhanced` (`name_enhanced`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -2214,6 +2227,7 @@ CREATE TABLE `object_query_12` (
   `imagesInheritance` varchar(190) DEFAULT NULL,
   `attributesAvailable` varchar(190) DEFAULT NULL,
   `variantsAvailable` varchar(190) DEFAULT NULL,
+  `wfstate` text,
   PRIMARY KEY (`oo_id`),
   KEY `p_index_artno` (`artno`),
   KEY `p_index_size` (`size`)
@@ -2228,6 +2242,7 @@ CREATE TABLE `object_query_14` (
   `oo_className` varchar(255) DEFAULT 'ProductCategory',
   `filterdefinition__id` int(11) DEFAULT NULL,
   `filterdefinition__type` enum('document','asset','object') DEFAULT NULL,
+  `priorityProducts` text,
   PRIMARY KEY (`oo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -2411,7 +2426,6 @@ CREATE TABLE `object_query_39` (
   `oo_classId` int(11) DEFAULT '39',
   `oo_className` varchar(255) DEFAULT 'TermSegmentBuilderDefinition',
   `name` varchar(190) DEFAULT NULL,
-  `terms` longtext,
   PRIMARY KEY (`oo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -2432,7 +2446,6 @@ CREATE TABLE `object_query_40` (
   `utm_campaign` varchar(190) DEFAULT NULL,
   `utm_term` varchar(190) DEFAULT NULL,
   `utm_content` varchar(190) DEFAULT NULL,
-  `attributes` longtext,
   PRIMARY KEY (`oo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -3019,6 +3032,7 @@ CREATE TABLE `object_store_12` (
   `gender` text,
   `color` text,
   `imagesInheritance` varchar(190) DEFAULT NULL,
+  `wfstate` text,
   PRIMARY KEY (`oo_id`),
   KEY `p_index_artno` (`artno`),
   KEY `p_index_size` (`size`)
@@ -3347,7 +3361,7 @@ CREATE TABLE `plugin_cmf_actiontrigger_rules` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `active` (`active`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 
 
@@ -3368,7 +3382,18 @@ CREATE TABLE `plugin_cmf_activities` (
   KEY `customerId` (`customerId`),
   KEY `o_id` (`o_id`),
   KEY `a_id` (`a_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `plugin_cmf_activities_metadata`;
+CREATE TABLE `plugin_cmf_activities_metadata` (
+  `activityId` int(20) NOT NULL,
+  `key` varchar(150) COLLATE utf8_bin NOT NULL,
+  `data` longtext COLLATE utf8_bin,
+  PRIMARY KEY (`activityId`,`key`),
+  KEY `activityId` (`activityId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 
@@ -3510,4 +3535,70 @@ CREATE TABLE `plugin_cmf_sequence_numbers` (
   `number` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `plugin_process_manager_callback_setting`;
+CREATE TABLE `plugin_process_manager_callback_setting` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `creationDate` int(10) unsigned NOT NULL DEFAULT '0',
+  `modificationDate` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `settings` text,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `plugin_process_manager_configuration`;
+CREATE TABLE `plugin_process_manager_configuration` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `creationDate` int(10) unsigned NOT NULL DEFAULT '0',
+  `modificationDate` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `group` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `executorClass` varchar(500) NOT NULL,
+  `cronJob` varchar(20) DEFAULT NULL,
+  `lastCronJobExecution` int(10) unsigned DEFAULT NULL,
+  `active` tinyint(4) DEFAULT '1',
+  `keepVersions` char(1) DEFAULT NULL,
+  `executorSettings` text,
+  `restrictToRoles` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+DROP TABLE IF EXISTS `plugin_process_manager_monitoring_item`;
+CREATE TABLE `plugin_process_manager_monitoring_item` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `creationDate` int(11) unsigned NOT NULL DEFAULT '0',
+  `modificationDate` int(11) unsigned NOT NULL DEFAULT '0',
+  `reportedDate` int(10) unsigned DEFAULT NULL,
+  `currentStep` tinyint(3) unsigned DEFAULT NULL,
+  `totalSteps` tinyint(3) unsigned DEFAULT NULL,
+  `totalWorkload` int(10) unsigned DEFAULT NULL,
+  `currentWorkload` int(10) unsigned DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `command` longtext,
+  `status` varchar(20) DEFAULT NULL,
+  `updated` int(11) DEFAULT NULL,
+  `message` varchar(1000) DEFAULT NULL,
+  `configurationId` int(11) DEFAULT NULL,
+  `pid` int(11) DEFAULT NULL,
+  `callbackSettings` longtext,
+  `executedByUser` int(11) DEFAULT '0',
+  `actions` text,
+  `loggers` text,
+  `metaData` longtext,
+  `published` tinyint(4) NOT NULL DEFAULT '1',
+  `group` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `updated` (`updated`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 

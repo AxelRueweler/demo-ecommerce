@@ -28,6 +28,10 @@ INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_cmf_perm_custom
 INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_cmf_perm_customerview_admin');
 INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_cmf_perm_customer_automation_rules');
 INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_cmf_perm_newsletter_enqueue_all_customers');
+INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_exporttoolkit_config');
+INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_pm_permission_configure');
+INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_pm_permission_execute');
+INSERT INTO users_permission_definitions (`key`) VALUES ('plugin_pm_permission_view');
 INSERT INTO users_permission_definitions (`key`) VALUES ('predefined_properties');
 INSERT INTO users_permission_definitions (`key`) VALUES ('recyclebin');
 INSERT INTO users_permission_definitions (`key`) VALUES ('redirects');
