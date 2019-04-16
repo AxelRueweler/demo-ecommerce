@@ -15,7 +15,7 @@ namespace Deployer;
 require __DIR__ . '/vendor/deployer/deployer/recipe/symfony3.php';  // Comes form deployer.phar
 require __DIR__ . '/vendor/w-vision/pimcore-deployer/recipes/pimcore.php';
 
-host('ec2-35-158-48-74.eu-central-1.compute.amazonaws.com')
+host('ec2-18-197-191-63.eu-central-1.compute.amazonaws.com')
     ->user('pimcore')
     ->port(22)
     ->set('deploy_path', '/home/pimcore')
@@ -81,7 +81,6 @@ task('deploy', [
     'deploy:update_code',
     'deploy:shared',
     'deploy:writable',
-    'deploy:chown',
     'deploy:vendors',
     'deploy:assets:install',
     'deploy:pimcore:migrate:core',
