@@ -25,6 +25,8 @@ INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES 
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190131095936','2019-04-12 09:48:33');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190320133439','2019-04-12 09:48:33');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190402073052','2019-04-12 09:48:33');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190403120728','2019-04-16 14:57:32');
+INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('pimcore_core','20190405112707','2019-04-16 14:57:33');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','00000001','2017-11-20 17:32:44');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','20171019130865','2017-11-10 13:52:45');
 INSERT INTO pimcore_migrations (`migration_set`,`version`,`migrated_at`) VALUES ('PimcoreCustomerManagementFrameworkBundle','20171102160547','2017-11-10 13:52:45');

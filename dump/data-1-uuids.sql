@@ -159,3 +159,4 @@ INSERT INTO uuids (`uuid`,`itemId`,`type`,`instanceIdentifier`) VALUES ('76b76f2
 INSERT INTO uuids (`uuid`,`itemId`,`type`,`instanceIdentifier`) VALUES ('2d19a63d-7677-5fcc-8848-6bd5d0fb65a3','12454','object','demo-ecommerce');
 INSERT INTO uuids (`uuid`,`itemId`,`type`,`instanceIdentifier`) VALUES ('deafed9a-539e-5915-9c34-3749b119a445','12455','object','demo-ecommerce');
 INSERT INTO uuids (`uuid`,`itemId`,`type`,`instanceIdentifier`) VALUES ('71ec0b40-4159-5e9e-babd-dabc3b3cbf73','12456','object','demo-ecommerce');
+INSERT INTO uuids (`uuid`,`itemId`,`type`,`instanceIdentifier`) VALUES ('bcaa98e7-dd7b-5b0e-b83d-4b9ba4158550','12457','object','demo-ecommerce');
